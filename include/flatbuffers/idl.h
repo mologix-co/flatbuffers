@@ -581,6 +581,7 @@ struct IDLOptions {
     kRust = 1 << 14,
     kKotlin = 1 << 15,
     kSwift = 1 << 16,
+    kAssemblyScript = 1 << 17,
     kMAX
   };
 
@@ -1022,6 +1023,11 @@ extern bool GenerateJava(const Parser &parser, const std::string &path,
 extern bool GenerateJSTS(const Parser &parser, const std::string &path,
                          const std::string &file_name);
 
+// Generate AssemblyScript code from the definitions in the Parser
+// object. See idl_gen_as.
+extern bool GenerateAssemblyScript(const Parser &parser, const std::string &path,
+                         const std::string &file_name);
+
 // Generate Go files from the definitions in the Parser object.
 // See idl_gen_go.cpp.
 extern bool GenerateGo(const Parser &parser, const std::string &path,
@@ -1075,6 +1081,11 @@ extern bool GenerateFBS(const Parser &parser, const std::string &path,
 // Generate a make rule for the generated JavaScript or TypeScript code.
 // See idl_gen_js.cpp.
 extern std::string JSTSMakeRule(const Parser &parser, const std::string &path,
+                                const std::string &file_name);
+
+// Generate a make rule for the generated AssemblyScript code.
+// See idl_gen_as.cpp.
+extern std::string AssemblyScriptMakeRule(const Parser &parser, const std::string &path,
                                 const std::string &file_name);
 
 // Generate a make rule for the generated C++ header.

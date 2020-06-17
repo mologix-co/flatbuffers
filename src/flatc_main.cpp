@@ -110,6 +110,10 @@ int main(int argc, const char *argv[]) {
     { flatbuffers::GenerateSwift, nullptr, "--swift", "swift", true,
       flatbuffers::GenerateSwiftGRPC, flatbuffers::IDLOptions::kSwift,
       "Generate Swift files for tables/structs", nullptr },
+    { flatbuffers::GenerateAssemblyScript, "-AS", "--as", "AssemblyScript", true, nullptr,
+            flatbuffers::IDLOptions::kAssemblyScript,
+            "Generate AssemblyScript code for tables/structs",
+            flatbuffers::AssemblyScriptMakeRule },
   };
 
   flatbuffers::FlatCompiler::InitParams params;
